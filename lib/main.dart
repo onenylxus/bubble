@@ -1,10 +1,7 @@
 // Import
 import 'package:flutter/material.dart';
-
-// Main function
-void main() {
-  runApp(const MyApp());
-}
+import 'package:bubble/screens/screens.dart';
+import 'package:bubble/theme.dart';
 
 // Application class
 class MyApp extends StatelessWidget {
@@ -13,16 +10,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'bubble',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('bubble'),
-        ),
-        body: const Center(
-          child: Text('bubble'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: lightThemeData(),
+      darkTheme: darkThemeData(),
+      home: const HomeScreen(),
     );
   }
 }
+
+// Main function
+void main() => runApp(const MyApp());
