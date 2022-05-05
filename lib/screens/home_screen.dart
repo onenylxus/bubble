@@ -35,24 +35,31 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorTransparent,
+        iconTheme: Theme.of(context).iconTheme,
         elevation: 0,
-        centerTitle: true,
         title: ValueListenableBuilder(
           valueListenable: currentIndex,
           builder: (BuildContext context, int value, _) => Text(
             titles[value],
-            style: const TextStyle(
+            style: Theme.of(context).textTheme.headline6!.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 16,
-              color: colorTint,
             ),
+          ),
+        ),
+        leadingWidth: 48,
+        leading: Align(
+          alignment: Alignment.centerRight,
+          child: GestureIcon(
+            icon: Icons.search,
+            callback: () {},
           ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
-            child: Avatar.small(url: ImageUtils.generateRandomImage()),
-          )
+            child: Avatar.small(url: BubbleImageUtils.generateRandomImage()),
+          ),
         ],
       ),
       body: ValueListenableBuilder(

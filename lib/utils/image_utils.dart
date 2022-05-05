@@ -2,7 +2,7 @@
 import 'dart:math';
 
 // Image utility class
-abstract class ImageUtils {
+abstract class BubbleImageUtils {
   static final random = Random();
 
   static String generateRandomImage() {
