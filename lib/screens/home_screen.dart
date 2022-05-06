@@ -95,41 +95,57 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: true,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _NavigationBarItem(
-            name: 'Messages',
-            icon: CupertinoIcons.bubble_left_bubble_right_fill,
-            index: 0,
-            callback: handleIndex,
-            isSelected: (currentIndex == 0),
+    return Card(
+      margin: const EdgeInsets.all(0),
+      elevation: 0,
+      color: Theme.of(context).brightness == Brightness.light ? colorTransparent : null,
+      child: SafeArea(
+        top: false,
+        bottom: true,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _NavigationBarItem(
+                name: 'Messages',
+                icon: CupertinoIcons.bubble_left_bubble_right_fill,
+                index: 0,
+                callback: handleIndex,
+                isSelected: (currentIndex == 0),
+              ),
+              _NavigationBarItem(
+                name: 'Notifications',
+                icon: CupertinoIcons.bell_solid,
+                index: 1,
+                callback: handleIndex,
+                isSelected: (currentIndex == 1),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ActionButton(
+                  color: colorTint,
+                  icon: CupertinoIcons.add,
+                  callback: () {},
+                ),
+              ),
+              _NavigationBarItem(
+                name: 'Calls',
+                icon: CupertinoIcons.phone_fill,
+                index: 2,
+                callback: handleIndex,
+                isSelected: (currentIndex == 2),
+              ),
+              _NavigationBarItem(
+                name: 'Contacts',
+                icon: CupertinoIcons.person_2_fill,
+                index: 3,
+                callback: handleIndex,
+                isSelected: (currentIndex == 3),
+              ),
+            ],
           ),
-          _NavigationBarItem(
-            name: 'Notifications',
-            icon: CupertinoIcons.bell_solid,
-            index: 1,
-            callback: handleIndex,
-            isSelected: (currentIndex == 1),
-          ),
-          _NavigationBarItem(
-            name: 'Calls',
-            icon: CupertinoIcons.phone_fill,
-            index: 2,
-            callback: handleIndex,
-            isSelected: (currentIndex == 2),
-          ),
-          _NavigationBarItem(
-            name: 'Contacts',
-            icon: CupertinoIcons.person_2_fill,
-            index: 3,
-            callback: handleIndex,
-            isSelected: (currentIndex == 3),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -156,13 +172,13 @@ class _NavigationBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: SizedBox(
-        height: 70,
+        width: 70,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
               icon,
-              size: 24,
+              size: 20,
               color: isSelected ? colorTint : null,
             ),
             const SizedBox(height: 4),
@@ -170,7 +186,7 @@ class _NavigationBarItem extends StatelessWidget {
               name,
               style: TextStyle(
                 fontWeight: isSelected ? FontWeight.bold : null,
-                fontSize: 12,
+                fontSize: 11,
                 color: isSelected ? colorTint : null,
               ),
             ),
