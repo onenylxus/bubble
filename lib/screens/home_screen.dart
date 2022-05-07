@@ -47,10 +47,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        leadingWidth: 48,
+        leadingWidth: 54,
         leading: Align(
           alignment: Alignment.centerRight,
-          child: GestureIcon(
+          child: GestureIcon.fill(
             icon: Icons.search,
             callback: () {},
           ),

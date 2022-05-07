@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:bubble/constants/constants.dart';
 import 'package:bubble/models/models.dart';
+import 'package:bubble/screens/screens.dart';
 import 'package:bubble/utils/utils.dart';
 import 'package:bubble/widgets/widgets.dart';
 
@@ -225,7 +226,9 @@ class _MessageCard extends StatelessWidget {
           ),
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(ChatScreen.route(data));
+      },
     );
   }
 }
